@@ -10,31 +10,41 @@ namespace SerialPortTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        SerialPort serialPort;
+        TextBoxOutputter outputter;
         public MainWindow()
         {
-            SerialPort mySerialPort = new SerialPort("COM1");
-
-            mySerialPort.BaudRate = 9600;
-            mySerialPort.Parity = Parity.None;
-            mySerialPort.StopBits = StopBits.One;
-            mySerialPort.DataBits = 8;
-            mySerialPort.Handshake = Handshake.None;
-            mySerialPort.RtsEnable = true;
-            mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-
-            mySerialPort.Open();
-
-            Console.WriteLine("Press any key to continue...");
-            Console.WriteLine();
-            Console.ReadKey();
-            mySerialPort.Close();
-
             InitializeComponent();
+
+            outputter = new TextBoxOutputter(ConsoleTextBox);
+            Console.SetOut(outputter);
+            Console.WriteLine("Started");
+
+            PortNameComboBox.ItemsSource = SerialPort.GetPortNames();
+            BaudRateTextBox.Text = "38400";
         }
 
-        private static void DataReceivedHandler(
-                    object sender,
-                    SerialDataReceivedEventArgs e)
+        private void StartReadingButton_Click(object sender, RoutedEventArgs e)
+        {
+            string portName = PortNameComboBox.SelectedValue.ToString();
+            int baudRate = int.Parse(BaudRateTextBox.Text);
+
+            serialPort = new SerialPort();
+            serialPort.PortName = portName;
+            serialPort.BaudRate = baudRate;
+            serialPort.Parity = Parity.None;
+            serialPort.StopBits = StopBits.One;
+            serialPort.DataBits = 8;
+            serialPort.Handshake = Handshake.None;
+            serialPort.RtsEnable = true;
+            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+
+            Console.WriteLine("Start Reading PortName: " + portName + " BaudRate: " + baudRate);
+
+            serialPort.Open();
+        }
+
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
