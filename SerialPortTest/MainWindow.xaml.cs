@@ -68,6 +68,12 @@ namespace SerialPortTest
             string indata = sp.ReadExisting();
             Console.Write(indata);
             sb.Append(indata);
+
+            ConsoleTextBox.ScrollToEnd();
+            while (ConsoleTextBox.LineCount > 20)
+            {
+                ConsoleTextBox.Text = ConsoleTextBox.Text.Remove(0, ConsoleTextBox.GetLineLength(0));
+            }
         }
 
         private void Browse_Button_Click(object sender, RoutedEventArgs e)
@@ -91,11 +97,21 @@ namespace SerialPortTest
         //    timer.Tick += WriteDate;
         //    timer.Interval = 30; // in miliseconds
         //    timer.Start();
+        //    ConsoleTextBox.ScrollToEnd();
         //}
 
         //private void WriteDate(object sender, EventArgs e)
         //{
-        //    sb.AppendLine(DateTime.Now.ToString());
+            
+        //    string data = DateTime.Now.ToString();
+        //    sb.AppendLine(data);
+        //    Console.WriteLine(data);
+        //    ConsoleTextBox.ScrollToEnd();
+
+        //    while (ConsoleTextBox.LineCount > 10)
+        //    {
+        //        ConsoleTextBox.Text = ConsoleTextBox.Text.Remove(0, ConsoleTextBox.GetLineLength(0));
+        //    }
         //}
     }
 }
