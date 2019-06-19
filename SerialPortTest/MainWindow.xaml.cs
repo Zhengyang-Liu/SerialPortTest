@@ -45,7 +45,7 @@ namespace SerialPortTest
             serialPort.RtsEnable = true;
             serialPort.DataReceived += DataReceivedHandler;
 
-            filePath = FolderPathText.Text + "\\" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH'-'mm'-'ss")+".txt";
+            filePath = FolderPathText.Text + "\\" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH'-'mm'-'ss") + ".txt";
 
             Console.WriteLine("Start Reading PortName: " + portName + " BaudRate: " + baudRate);
 
@@ -69,11 +69,14 @@ namespace SerialPortTest
             Console.Write(indata);
             sb.Append(indata);
 
-            ConsoleTextBox.ScrollToEnd();
-            while (ConsoleTextBox.LineCount > 20)
+            this.Dispatcher.Invoke(() =>
             {
-                ConsoleTextBox.Text = ConsoleTextBox.Text.Remove(0, ConsoleTextBox.GetLineLength(0));
-            }
+                ConsoleTextBox.ScrollToEnd();
+                while (ConsoleTextBox.LineCount > 20)
+                {
+                    ConsoleTextBox.Text = ConsoleTextBox.Text.Remove(0, ConsoleTextBox.GetLineLength(0));
+                }
+            });
         }
 
         private void Browse_Button_Click(object sender, RoutedEventArgs e)
@@ -102,7 +105,7 @@ namespace SerialPortTest
 
         //private void WriteDate(object sender, EventArgs e)
         //{
-            
+
         //    string data = DateTime.Now.ToString();
         //    sb.AppendLine(data);
         //    Console.WriteLine(data);
