@@ -37,10 +37,19 @@ namespace SerialPortTest
 
             foreach (DataStruct item in dataList)
             {
-                DataRow row = table.NewRow();
-                row["time"] = item.dateTime;
-                row["acceleration"] = item.data;
-                table.Rows.Add(row);
+                try
+                {
+                    DataRow row = table.NewRow();
+                    row["time"] = item.dateTime;
+                    row["acceleration"] = item.data;
+                    table.Rows.Add(row);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw e;
+                }
+
             }
 
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))

@@ -63,7 +63,7 @@ namespace SerialPortTest.DataSource
             string[] stringArray = indata.Split('\n');
             foreach (string str in stringArray)
             {
-                appendDataFunction(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "|" + str);
+                appendDataFunction(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "|" + str +"\n");
             }
         }
     }
