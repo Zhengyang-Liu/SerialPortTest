@@ -28,14 +28,12 @@ namespace SerialPortTest.DataSource
             set;
         }
 
-        StringBuilder sb;
         Action<string> appendDataFunction;
 
-        public ArduinoDataSource(StringBuilder sb, Action<string> appendDataFunction, string portName = "", int baudRate = 0, string folderPath = "")
+        public ArduinoDataSource(Action<string> appendDataFunction, string portName = "", int baudRate = 0, string folderPath = "")
         {
             this.PortName = portName;
             this.BaudRate = baudRate;
-            this.sb = sb;
             this.appendDataFunction = appendDataFunction;
         }
 

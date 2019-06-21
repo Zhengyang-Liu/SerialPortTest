@@ -10,12 +10,10 @@ namespace SerialPortTest.DataSource
     class FakeDataSource : IDataSource
     {
         Timer timer;
-        StringBuilder sb;
         Action<string> appendDataFunction;
 
-        public FakeDataSource(StringBuilder sb, Action<string> appendDataFunction)
+        public FakeDataSource(Action<string> appendDataFunction)
         {
-            this.sb = sb;
             this.appendDataFunction = appendDataFunction;
         }
 

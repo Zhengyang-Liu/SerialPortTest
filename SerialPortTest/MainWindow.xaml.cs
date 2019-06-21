@@ -14,7 +14,6 @@ namespace SerialPortTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        TextBoxOutputter outputter;
         StringBuilder sb = new StringBuilder();
         Timer timer;
         string filePath;
@@ -58,11 +57,11 @@ namespace SerialPortTest
 
             if (EnableFakeData.IsChecked == true)
             {
-                dataSource = new FakeDataSource(sb, AppendData);
+                dataSource = new FakeDataSource(AppendData);
             }
             else
             {
-                dataSource = new ArduinoDataSource(sb, AppendData, portName, baudRate);
+                dataSource = new ArduinoDataSource(AppendData, portName, baudRate);
             }
         }
 
@@ -95,7 +94,6 @@ namespace SerialPortTest
         private void Backfill_Button_Click(object sender, RoutedEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(FolderPathText.Text);
-            DirectoryInfo[] subDiArr = di.GetDirectories();
 
             foreach(FileInfo file in di.GetFiles())
             {
