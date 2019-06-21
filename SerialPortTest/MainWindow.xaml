@@ -5,19 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerialPortTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="664.706">
     <Grid>
-        <Label Name="PortName" Content="Port Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Name="BaudRate" Content="Baud Rate" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:FieldModifier="public" Name="PortNameComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="117,14,0,0"/>
-        <TextBox x:FieldModifier="public" Name="BaudRateTextBox" HorizontalAlignment="Left" Height="24" Margin="117,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="98*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="190*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="131*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Name="PortName" Content="Port Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="26"/>
+        <Label Grid.Row="0" Name="BaudRate" Content="Baud Rate:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="85" Height="26"/>
+        <ComboBox Grid.Row="0" x:FieldModifier="public" Name="PortNameComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="116,14,0,0" RenderTransformOrigin="1.282,0.634" Height="22"/>
+        <TextBox Grid.Row="0" x:FieldModifier="public" Name="BaudRateTextBox" HorizontalAlignment="Left" Height="24" Margin="116,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="105"/>
 
-        <Label Content="Folder Path" HorizontalAlignment="Left" Margin="342,8,0,0" VerticalAlignment="Top"/>
-        <Button Content="Browse" HorizontalAlignment="Left" Margin="683,10,0,0" VerticalAlignment="Top" Width="100" Click="Browse_Button_Click" Height="25"/>
-        <TextBox x:FieldModifier="public" Name="FolderPathText" HorizontalAlignment="Left" Height="25" Margin="422,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="256"/>
+        <Label Grid.Row="0" Content="Folder Path:" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Width="85" Height="26"/>
+        <Button Grid.Row="0" Content="Browse" HorizontalAlignment="Left" Margin="560,10,0,0" VerticalAlignment="Top" Width="87" Click="Browse_Button_Click" Height="25"/>
+        <TextBox Grid.Row="0" x:FieldModifier="public" Name="FolderPathText" HorizontalAlignment="Left" Height="25" Margin="333,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222"/>
 
-        <Button Content="Start Reading" HorizontalAlignment="Left" Margin="683,52,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="StartReadingButton_Click"/>
-        <TextBox Name="ConsoleTextBox" Margin="10,87,10.333,9.667" />
-        <CheckBox Name="EnableFakeData" Content="Fake Data" HorizontalAlignment="Left" Margin="606,65,0,0" VerticalAlignment="Top"/>
+        <CheckBox Grid.Row="0" Name="EnableFakeData" Content="Fake Data" HorizontalAlignment="Left" Margin="560,73,0,0" VerticalAlignment="Top" Width="87" Height="15"/>
+
+        <GridSplitter Grid.Row="1" Width="657" HorizontalAlignment="Stretch" Background="DarkGray"/>
+
+        <Button Content="Start Reading" HorizontalAlignment="Left" Margin="463,155,0,0" VerticalAlignment="Top" Width="87" Height="25" Click="StartReadingButton_Click" RenderTransformOrigin="2.279,0.649" Grid.Row="2"/>
+
+        <Button Content="Backfill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="560,155,0,0" Click="Backfill_Button_Click" Height="25" Grid.Row="2"/>
+
+        <Label Content="Server name:" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="85" Grid.Row="2" Height="26"/>
+        <TextBox Name="ServerNameTextBox" HorizontalAlignment="Left" Height="23" Margin="116,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="291" Grid.Row="2"/>
+        <Label Content="Database Name:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Height="26"/>
+        <TextBox Name="DatabaseNameTextBox" HorizontalAlignment="Left" Height="23" Margin="116,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="291" Grid.Row="2"/>
+        <Label Content="User name:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="85" Grid.Row="2" Height="26"/>
+        <TextBox Name="UserNameTextBox" HorizontalAlignment="Left" Height="23" Margin="116,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="291" Grid.Row="2"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="85" Grid.Row="2" Height="26"/>
+        <TextBox Name="PasswordTextBox" HorizontalAlignment="Left" Height="23" Margin="116,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="291" Grid.Row="2"/>
+        <CheckBox Name="UploadCheckBox" Content="Upload to database" IsChecked="True" HorizontalAlignment="Left" Margin="333,160,0,0" Grid.Row="2" VerticalAlignment="Top" Height="15" Width="124"/>
+
+        <GridSplitter Grid.Row="3" Width="657" HorizontalAlignment="Stretch" Background="DarkGray"/>
+
+        <TextBox Name="ConsoleTextBox" Margin="10,6.294,10,10" Grid.Row="4" />
+
     </Grid>
 </Window>

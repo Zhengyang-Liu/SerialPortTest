@@ -59,7 +59,11 @@ namespace SerialPortTest.DataSource
         {
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
-            appendDataFunction(indata);
+            string[] stringArray = indata.Split('\n');
+            foreach (string str in stringArray)
+            {
+                appendDataFunction(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "|" + str);
+            }
         }
     }
 }

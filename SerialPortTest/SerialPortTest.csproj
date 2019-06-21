@@ -56,9 +56,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="DataSource\ArduinoDataSource.cs" />
     <Compile Include="DataSource\FakeDataSource.cs" />
     <Compile Include="DataSource\IDataSource.cs" />
+    <Compile Include="DataStructure.cs" />
+    <Compile Include="StringHelper.cs" />
     <Compile Include="TextBoxOutputter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

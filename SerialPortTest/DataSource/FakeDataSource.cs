@@ -34,7 +34,7 @@ namespace SerialPortTest.DataSource
 
         private void WriteDate(object sender, EventArgs e)
         {
-            string data = DateTime.Now.ToString() + "\n";
+            string data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "|"+ DateTime.Now.Second.ToString() + "\n";
             appendDataFunction(data);
         }
     }
