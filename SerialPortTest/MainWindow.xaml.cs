@@ -85,10 +85,10 @@ namespace SerialPortTest
         {
             sb.Append(data);
             Console.Write(data);
-            ConsoleTextBox.ScrollToEnd();
 
             this.Dispatcher.Invoke(() =>
             {
+                ConsoleTextBox.ScrollToEnd();
                 while (ConsoleTextBox.LineCount > 20)
                 {
                     ConsoleTextBox.Text = ConsoleTextBox.Text.Remove(0, ConsoleTextBox.GetLineLength(0));
