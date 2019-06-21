@@ -36,6 +36,7 @@ namespace SerialPortTest.DataSource
             this.PortName = portName;
             this.BaudRate = baudRate;
             this.sb = sb;
+            this.appendDataFunction = appendDataFunction;
         }
 
         public void Start()
