@@ -52,6 +52,7 @@ namespace SerialPortTest.DataSource
             Console.WriteLine("Start Reading PortName: " + this.PortName + " BaudRate: " + this.BaudRate);
 
             serialPort.Open();
+            serialPort.WriteLine(DateTime.Now.ToString("H,m,s,d,M,yyyy"));
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
