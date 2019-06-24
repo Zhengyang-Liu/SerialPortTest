@@ -33,7 +33,7 @@ namespace SerialPortTest
                 if(line.Contains('|'))
                 {
                     string[] split = line.Split(new Char[] { '|' });
-                    dataList.Add(new DataStruct(DateTime.Parse(split[0]), split[1]));
+                    dataList.Add(new DataStruct(DateTime.ParseExact(split[0],"yyyy-M-d H.m.s.fffff",null), split[1]));
                 }
             }
 
