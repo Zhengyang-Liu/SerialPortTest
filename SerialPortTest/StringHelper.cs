@@ -28,12 +28,19 @@ namespace SerialPortTest
         {
             List<DataStruct> dataList = new List<DataStruct>();
 
-            foreach(string line in lineArray)
+            foreach (string line in lineArray)
             {
-                if(line.Contains('|'))
+                if (line.Contains('|'))
                 {
-                    string[] split = line.Split(new Char[] { '|' });
-                    dataList.Add(new DataStruct(DateTime.Parse(split[0]), split[1]));
+                    try
+                    {
+                        string[] split = line.Split(new Char[] { '|' });
+                        dataList.Add(new DataStruct(DateTime.ParseExact(split[0], "yyyy-M-d H.m.s.fffff", null), split[1]));
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Corrupted line: " + line);
+                    }
                 }
             }
 
