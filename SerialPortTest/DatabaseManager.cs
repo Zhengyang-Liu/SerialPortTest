@@ -41,7 +41,7 @@ namespace SerialPortTest
                 {
                     DataRow row = table.NewRow();
                     row["time"] = item.dateTime;
-                    row["acceleration"] = item.data;
+                    row["acceleration"] = decimal.Parse(item.data);
                     table.Rows.Add(row);
                 }
                 catch (Exception e)
@@ -72,7 +72,7 @@ namespace SerialPortTest
             string queryString =
             "CREATE TABLE [" + tableName + "] (" +
             "time DateTime NOT NULL,    " +
-            "acceleration numeric NOT NULL,    " +
+            "acceleration decimal(6,4) NOT NULL,    " +
             "PRIMARY KEY(time)); ";
 
             try
