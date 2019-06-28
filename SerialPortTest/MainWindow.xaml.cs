@@ -106,6 +106,8 @@ namespace SerialPortTest
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
+            dataSource.OnClose();
+
             Properties.Settings.Default.BaudRate = BaudRateTextBox.Text;
             Properties.Settings.Default.FolderPath = FolderPathText.Text;
             Properties.Settings.Default.ServerName = ServerNameTextBox.Text;

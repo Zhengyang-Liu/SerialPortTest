@@ -35,5 +35,9 @@ namespace SerialPortTest.DataSource
             string data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "|0.003\n";
             appendDataFunction(data);
         }
+
+        public void OnClose()
+        {
+        }
     }
 }

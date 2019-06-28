@@ -67,5 +67,10 @@ namespace SerialPortTest.DataSource
                 appendDataFunction(str +"\n");
             }
         }
+
+        public void OnClose()
+        {
+            serialPort.WriteLine("end");
+        }
     }
 }

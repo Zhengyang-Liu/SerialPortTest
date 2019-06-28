@@ -10,5 +10,7 @@ namespace SerialPortTest.DataSource
     interface IDataSource
     {
         void Start();
+
+        void OnClose();
     }
 }
