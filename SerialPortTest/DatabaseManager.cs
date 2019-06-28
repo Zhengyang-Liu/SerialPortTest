@@ -24,7 +24,7 @@ namespace SerialPortTest
             DataTable table = new DataTable("ParentTable");
 
             DataColumn timeColumn = new DataColumn();
-            timeColumn.DataType = Type.GetType("System.DateTime");
+            timeColumn.DataType = Type.GetType("System.String");
             timeColumn.ColumnName = "time";
             timeColumn.Unique = true;
 
