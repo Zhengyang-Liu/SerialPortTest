@@ -69,7 +69,7 @@ namespace SerialPortTest
         {
             timer = new Timer();
             timer.Tick += WriteDataEvent;
-            timer.Interval = 20000; // in miliseconds
+            timer.Interval = 2000; // in miliseconds
             timer.Start();
         }
 

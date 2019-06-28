@@ -18,7 +18,7 @@ namespace SerialPortTest
             while ((s = streamReader.ReadLine()) != null)
             {
                 string[] split = s.Split(new Char[] { '|' });
-                dataList.Add(new DataStruct(DateTime.Parse(split[0]), split[1]));
+                dataList.Add(new DataStruct(split[0], split[1]));
             }
 
             return dataList;
@@ -35,7 +35,7 @@ namespace SerialPortTest
                     try
                     {
                         string[] split = line.Split(new Char[] { '|' });
-                        dataList.Add(new DataStruct(DateTime.ParseExact(split[0], "yyyy-M-d H.m.s.fffff", null), split[1]));
+                        dataList.Add(new DataStruct(split[0], split[1]));
                     }
                     catch (Exception e)
                     {

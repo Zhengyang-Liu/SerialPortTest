@@ -48,10 +48,13 @@ namespace SerialPortTest.DataSource
             serialPort.Handshake = Handshake.None;
             serialPort.RtsEnable = true;
             serialPort.DataReceived += DataReceivedHandler;
-
             Console.WriteLine("Start Reading PortName: " + this.PortName + " BaudRate: " + this.BaudRate);
 
             serialPort.Open();
+
+            //send current time to Arduino
+            string dateString = DateTime.Now.ToString("H,m,s,d,M,yyyy");
+            serialPort.WriteLine(dateString);
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)

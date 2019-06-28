@@ -8,9 +8,9 @@ namespace SerialPortTest
 {
     public struct DataStruct
     {
-        public DateTime dateTime;
+        public string dateTime;
         public string data;
-        public DataStruct(DateTime dateTime, string data)
+        public DataStruct(string dateTime, string data)
         {
             this.dateTime = dateTime;
             this.data = data;
