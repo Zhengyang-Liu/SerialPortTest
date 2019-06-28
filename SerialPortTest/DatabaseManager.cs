@@ -72,7 +72,7 @@ namespace SerialPortTest
             string queryString =
             "CREATE TABLE [" + tableName + "] (" +
             "time DateTime NOT NULL,    " +
-            "acceleration decimal(6,4) NOT NULL,    " +
+            "acceleration decimal(10,4) NOT NULL,    " +
             "PRIMARY KEY(time)); ";
 
             try
