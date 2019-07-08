@@ -94,5 +94,17 @@ namespace SerialPortTest.Properties {
                 this["FolderPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("accelData")]
+        public string TableName {
+            get {
+                return ((string)(this["TableName"]));
+            }
+            set {
+                this["TableName"] = value;
+            }
+        }
     }
 }

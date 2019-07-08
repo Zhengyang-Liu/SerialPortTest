@@ -1,10 +1,8 @@
-﻿using System;
+﻿using SerialPortTest.Properties;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace SerialPortTest
 {
@@ -96,6 +94,11 @@ namespace SerialPortTest
             {
                 Console.WriteLine("Error: {0}", e);
             }
+        }
+
+        internal void BulkInsert(Settings @default, List<DataStruct> dataList)
+        {
+            throw new NotImplementedException();
         }
     }
 }

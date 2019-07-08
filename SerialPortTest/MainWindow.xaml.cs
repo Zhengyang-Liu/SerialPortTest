@@ -79,7 +79,6 @@ namespace SerialPortTest
                 return;
 
             this.databaseManager = new DatabaseManager(ServerNameTextBox.Text, DatabaseNameTextBox.Text, UserNameTextBox.Text, PasswordTextBox.Text);
-            this.databaseManager.CreateTable(this.fileName);
         }
 
         private void Browse_Button_Click(object sender, RoutedEventArgs e)
@@ -97,10 +96,9 @@ namespace SerialPortTest
 
             foreach(FileInfo file in di.GetFiles())
             {
-                databaseManager.CreateTable(file.Name);
                 StreamReader sr = file.OpenText();
                 List<DataStruct> DataList = StringHelper.GetDataList(sr);
-                databaseManager.BulkInsert(file.Name, DataList);
+                databaseManager.BulkInsert(Properties.Settings.Default.TableName, DataList);
             }
         }
 
@@ -128,7 +126,7 @@ namespace SerialPortTest
             {
                 string[] lines = sb.ToString().Split('\n');
                 List<DataStruct> DataList = StringHelper.GetDataList(lines);
-                databaseManager.BulkInsert(fileName, DataList);
+                databaseManager.BulkInsert(Properties.Settings.Default.TableName, DataList);
             }
 
             sb.Clear();

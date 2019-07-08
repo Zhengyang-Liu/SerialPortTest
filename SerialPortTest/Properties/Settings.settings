@@ -20,5 +20,8 @@
     <Setting Name="FolderPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="TableName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">accelData</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
